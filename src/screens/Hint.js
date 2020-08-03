@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ScrollView } from "react-native";
 import _ from "lodash";
 import { Asset } from "expo-asset";
 import Markdown from "react-native-markdown-display";
@@ -22,5 +23,16 @@ export const Hint = ({ route }) => {
     getData();
   }, [lesson]);
 
-  return <Markdown>{content}</Markdown>;
+  return (
+    <ScrollView
+      style={{
+        flex: 1,
+        backgroundColor: "#fff",
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+      }}
+    >
+      <Markdown>{content}</Markdown>
+    </ScrollView>
+  );
 };

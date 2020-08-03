@@ -29,7 +29,7 @@ const Main = () => (
           return (
             <View style={{ paddingRight: 10 }}>
               <Button
-                title="Hint"
+                title="Instructions"
                 onPress={() => navigation.push("Hint", { lesson })}
               />
             </View>

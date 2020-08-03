@@ -11,6 +11,6 @@ export default () => (
       backgroundColor: "#7ce0f9",
     }}
   >
-    <Text>Square 1</Text>
+    <Text>Hello, world!</Text>
   </View>
 );
