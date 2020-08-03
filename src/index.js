@@ -60,7 +60,7 @@ const Root = () => {
       <RootStack.Screen
         name="Hint"
         component={Hint}
-        options={{ headerShown: true }}
+        options={{ headerShown: true, title: "Instructions" }}
       />
     </RootStack.Navigator>
   );
