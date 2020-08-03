@@ -13,11 +13,16 @@ import { Hint } from "./screens/Hint";
 const AppStack = createStackNavigator();
 const Main = () => (
   <AppStack.Navigator screenOptions={{ headerBackTitleVisible: false }}>
-    <AppStack.Screen name="ExerciseList" component={ExerciseList} />
+    <AppStack.Screen
+      name="ExerciseList"
+      component={ExerciseList}
+      options={{ title: "Exercises" }}
+    />
     <AppStack.Screen
       name="Exercise"
       component={Exercise}
       options={({ navigation, route }) => ({
+        title: route.params.title,
         headerRight: () => {
           const lesson = _.get(route, "params.lesson");
 

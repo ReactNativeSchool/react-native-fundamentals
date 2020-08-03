@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
-import { Text } from "react-native";
 import { Asset } from "expo-asset";
 import Markdown from "react-native-markdown-display";
 
@@ -8,7 +7,7 @@ import exerciseMap from "../../Exercises";
 
 export const Hint = ({ route }) => {
   const lesson = _.get(route, "params.lesson");
-  const [content, setContent] = useState("test");
+  const [content, setContent] = useState("");
 
   useEffect(() => {
     const getData = async () => {
