@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
-import { Button } from "react-native";
+import { Button, View } from "react-native";
 import _ from "lodash";
 
 import { Welcome } from "./screens/Welcome";
@@ -11,30 +11,59 @@ import { Exercise } from "./screens/Exercise";
 import { Hint } from "./screens/Hint";
 
 const AppStack = createStackNavigator();
-export const App = () => (
-  <NavigationContainer>
-    <StatusBar style="auto" />
+const Main = () => (
+  <AppStack.Navigator screenOptions={{ headerBackTitleVisible: false }}>
+    <AppStack.Screen name="ExerciseList" component={ExerciseList} />
+    <AppStack.Screen
+      name="Exercise"
+      component={Exercise}
+      options={({ navigation, route }) => ({
+        headerRight: () => {
+          const lesson = _.get(route, "params.lesson");
 
-    <AppStack.Navigator>
-      <AppStack.Screen name="Welcome" component={Welcome} />
-      <AppStack.Screen name="ExerciseList" component={ExerciseList} />
-      <AppStack.Screen
-        name="Exercise"
-        component={Exercise}
-        options={({ navigation, route }) => ({
-          headerRight: () => {
-            const lesson = _.get(route, "params.lesson");
-
-            return (
+          return (
+            <View style={{ paddingRight: 10 }}>
               <Button
                 title="Hint"
                 onPress={() => navigation.push("Hint", { lesson })}
               />
-            );
-          },
-        })}
+            </View>
+          );
+        },
+      })}
+    />
+  </AppStack.Navigator>
+);
+
+const RootStack = createStackNavigator();
+const Root = () => {
+  const [onboardingComplete, setOnboardingComplete] = useState(false);
+
+  if (!onboardingComplete) {
+    return <Welcome onOnboardingComplete={() => setOnboardingComplete(true)} />;
+  }
+
+  return (
+    <RootStack.Navigator
+      mode="modal"
+      screenOptions={{
+        headerShown: false,
+        headerBackTitleVisible: false,
+      }}
+    >
+      <RootStack.Screen name="Main" component={Main} />
+      <RootStack.Screen
+        name="Hint"
+        component={Hint}
+        options={{ headerShown: true }}
       />
-      <AppStack.Screen name="Hint" component={Hint} />
-    </AppStack.Navigator>
+    </RootStack.Navigator>
+  );
+};
+
+export const App = () => (
+  <NavigationContainer>
+    <StatusBar style="auto" />
+    <Root />
   </NavigationContainer>
 );

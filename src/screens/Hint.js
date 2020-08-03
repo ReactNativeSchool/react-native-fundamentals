@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { Text } from "react-native";
 import { Asset } from "expo-asset";
+import Markdown from "react-native-markdown-display";
 
 import exerciseMap from "../../Exercises";
 
@@ -22,5 +23,5 @@ export const Hint = ({ route }) => {
     getData();
   }, [lesson]);
 
-  return <Text>{content}</Text>;
+  return <Markdown>{content}</Markdown>;
 };
