@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Button } from "./10.component";
+import { Button } from "./multiple-files.component";
 
 export default () => (
   <View style={{ marginTop: 20 }}>
