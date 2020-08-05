@@ -11,19 +11,6 @@ import { Entypo } from "@expo/vector-icons";
 
 import exercises from "../../Exercises";
 
-const EXERCISES = Object.keys(exercises)
-  .map((key) => ({
-    ...exercises[key],
-    lesson: key,
-  }))
-  .sort((a, b) => {
-    if (a.lesson > b.lesson) {
-      return 1;
-    }
-
-    return -1;
-  });
-
 const styles = StyleSheet.create({
   row: {
     backgroundColor: "#fff",
@@ -53,9 +40,9 @@ export const ExerciseList = ({ navigation }) => {
   return (
     <SafeAreaView>
       <FlatList
-        data={EXERCISES}
+        data={exercises}
         keyExtractor={(item) => item.lesson}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity
             style={styles.row}
             onPress={() =>
@@ -66,7 +53,7 @@ export const ExerciseList = ({ navigation }) => {
             }
           >
             <View>
-              <Text style={styles.headerText}>{`Exercise ${item.lesson}`}</Text>
+              <Text style={styles.headerText}>{`Exercise ${index + 1}`}</Text>
               <Text>{item.title}</Text>
             </View>
             <Entypo name="chevron-right" size={32} color="gray" />

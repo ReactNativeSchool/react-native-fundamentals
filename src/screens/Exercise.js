@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import _ from "lodash";
 
-import exerciseMap from "../../Exercises";
+import exercises from "../../Exercises";
 
 export const Exercise = ({ navigation, route }) => {
   const lesson = _.get(route, "params.lesson");
-  const lessonData = _.get(exerciseMap, lesson, {});
+  const lessonData = _.find(exercises, (e) => e.lesson === lesson);
 
   useEffect(() => {
     if (!lessonData.hintSource) {
