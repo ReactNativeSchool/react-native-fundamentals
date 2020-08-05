@@ -35,4 +35,13 @@ export default {
     source: require("./solutions/06.final").default,
     // hintSource: require("./exercises/06.md"),
   },
+  "07": {
+    title: "Building a Form",
+    source: require("./solutions/07.final").default,
+  },
+  "08": {
+    title: "Long Lists",
+    // source: require("./solutions/08.final").default,
+    source: require("./solutions/08.extra-1").default,
+  },
 };
