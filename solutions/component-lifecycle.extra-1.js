@@ -21,6 +21,8 @@ export default () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>The listener has updated {updateCount} time(s).</Text>
+      <Text>Currently listening to the {listenerName} listener.</Text>
+
       <Button
         title="Change Listener Name"
         onPress={() => {
