@@ -44,4 +44,23 @@ export default {
     // source: require("./solutions/08.final").default,
     source: require("./solutions/08.extra-1").default,
   },
+  "09": {
+    title: "Working with an API",
+    // source: require("./solutions/09.final").default,
+    // source: require("./solutions/09.extra-1").default,
+    source: require("./solutions/09.extra-2").default,
+  },
+  "10": {
+    title: "Splitting Code into Multiple Files",
+    source: require("./solutions/10.final").default,
+  },
+  "11": {
+    title: "Class Components",
+    source: require("./solutions/11.final").default,
+  },
+  "12": {
+    title: "Component Lifecycle",
+    // source: require("./solutions/12.final").default,
+    source: require("./solutions/12.extra-1").default,
+  },
 };

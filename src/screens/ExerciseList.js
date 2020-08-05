@@ -5,15 +5,24 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  SafeAreaView,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
 import exercises from "../../Exercises";
 
-const EXERCISES = Object.keys(exercises).map((key) => ({
-  ...exercises[key],
-  lesson: key,
-}));
+const EXERCISES = Object.keys(exercises)
+  .map((key) => ({
+    ...exercises[key],
+    lesson: key,
+  }))
+  .sort((a, b) => {
+    if (a.lesson > b.lesson) {
+      return 1;
+    }
+
+    return -1;
+  });
 
 const styles = StyleSheet.create({
   row: {
@@ -42,27 +51,29 @@ const styles = StyleSheet.create({
 
 export const ExerciseList = ({ navigation }) => {
   return (
-    <FlatList
-      data={EXERCISES}
-      keyExtractor={(item) => item.lesson}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={styles.row}
-          onPress={() =>
-            navigation.push("Exercise", {
-              lesson: item.lesson,
-              title: item.title,
-            })
-          }
-        >
-          <View>
-            <Text style={styles.headerText}>{`Exercise ${item.lesson}`}</Text>
-            <Text>{item.title}</Text>
-          </View>
-          <Entypo name="chevron-right" size={32} color="gray" />
-        </TouchableOpacity>
-      )}
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
-    />
+    <SafeAreaView>
+      <FlatList
+        data={EXERCISES}
+        keyExtractor={(item) => item.lesson}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() =>
+              navigation.push("Exercise", {
+                lesson: item.lesson,
+                title: item.title,
+              })
+            }
+          >
+            <View>
+              <Text style={styles.headerText}>{`Exercise ${item.lesson}`}</Text>
+              <Text>{item.title}</Text>
+            </View>
+            <Entypo name="chevron-right" size={32} color="gray" />
+          </TouchableOpacity>
+        )}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
+    </SafeAreaView>
   );
 };
