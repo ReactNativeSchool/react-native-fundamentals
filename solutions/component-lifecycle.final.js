@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 
-import { listener } from "../support/12";
+import { listener } from "../support/component-lifecycle";
 
 export default () => {
   const [updateCount, setUpdateCount] = useState(0);
