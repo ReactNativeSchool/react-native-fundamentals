@@ -1,4 +1,5 @@
-// TIP: Button is a core component exposed by React Native. That's where you'll want to import it from.
+// TIP: Button is a component exposed by React Native. You'll import it the same way you did View
+// and Text previously.
 
 export default () => {
   // Replace return null with your code.

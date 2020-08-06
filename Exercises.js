@@ -9,9 +9,9 @@ export default [
   {
     lesson: "capturing-taps",
     title: "Capturing Taps",
-    // source: require("./exercises/capturing-taps.js").default,
+    source: require("./exercises/capturing-taps.js").default,
     // source: require("./solutions/capturing-taps.final").default,
-    source: require("./solutions/capturing-taps.extra-1").default,
+    // source: require("./solutions/capturing-taps.extra-1").default,
     hintSource: require("./exercises/capturing-taps.md"),
   },
   {

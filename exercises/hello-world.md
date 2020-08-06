@@ -29,7 +29,7 @@ You can see that I define the prop `exampleProp` and pass a value to it.
 
 ## Exercise
 
-Render a square with a background color and text inside of it.
+Render a square with a background color. Inside of the square render the text "Hello, world".
 
 ## Helpful Links
 
