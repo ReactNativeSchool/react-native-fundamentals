@@ -2,8 +2,8 @@ export default [
   {
     lesson: "hello-world",
     title: "Hello, world!",
-    // source: require("./exercises/hello-world.js").default,
-    source: require("./solutions/hello-world.final").default,
+    source: require("./exercises/hello-world.js").default,
+    // source: require("./solutions/hello-world.final").default,
     hintSource: require("./exercises/hello-world.md"),
   },
   {
