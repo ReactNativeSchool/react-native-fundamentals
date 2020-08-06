@@ -17,9 +17,10 @@ export default [
   {
     lesson: "custom-component",
     title: "Custom Component",
+    source: require("./exercises/custom-component").default,
     // source: require("./solutions/custom-component.final").default,
-    source: require("./solutions/custom-component.extra-1").default,
-    // hintSource: require("./exercises/custom-component.md"),
+    // source: require("./solutions/custom-component.extra-1").default,
+    hintSource: require("./exercises/custom-component.md"),
   },
   {
     lesson: "state-props",
