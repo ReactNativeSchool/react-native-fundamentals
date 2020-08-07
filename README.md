@@ -1,3 +1,5 @@
+**Note:** This workshop is a work in progress!
+
 # React Native Fundamentals
 
 This workshop aims to get you up and running with React Native and understand the fundamentals.
