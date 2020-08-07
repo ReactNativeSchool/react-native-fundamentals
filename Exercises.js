@@ -25,16 +25,18 @@ export default [
   {
     lesson: "state-props",
     title: "State & Props",
+    source: require("./exercises/state-props").default,
     // source: require("./solutions/state-props.final").default,
-    source: require("./solutions/state-props.extra-1").default,
-    // hintSource: require("./exercises/state-props.md"),
+    // source: require("./solutions/state-props.extra-1").default,
+    hintSource: require("./exercises/state-props.md"),
   },
   {
     lesson: "styling",
     title: "Styling",
+    source: require("./exercises/styling").default,
     // source: require("./solutions/styling.final").default,
-    source: require("./solutions/styling.extra-1").default,
-    // hintSource: require("./exercises/styling.md"),
+    // source: require("./solutions/styling.extra-1").default,
+    hintSource: require("./exercises/styling.md"),
   },
   {
     lesson: "scrollable-content",
