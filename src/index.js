@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
@@ -9,6 +9,7 @@ import { Welcome } from "./screens/Welcome";
 import { ExerciseList } from "./screens/ExerciseList";
 import { Exercise } from "./screens/Exercise";
 import { Hint } from "./screens/Hint";
+import { get, set } from "./util/storage";
 
 const AppStack = createStackNavigator();
 const Main = () => (
@@ -42,10 +43,31 @@ const Main = () => (
 
 const RootStack = createStackNavigator();
 const Root = () => {
-  const [onboardingComplete, setOnboardingComplete] = useState(false);
+  const [onboardingComplete, setOnboardingComplete] = useState();
+
+  useEffect(() => {
+    get("ONBOARDING_COMPLETE").then((onboarded) => {
+      if (onboarded) {
+        setOnboardingComplete(true);
+      } else {
+        setOnboardingComplete(false);
+      }
+    });
+  }, []);
+
+  if (onboardingComplete === undefined) {
+    return null;
+  }
 
   if (!onboardingComplete) {
-    return <Welcome onOnboardingComplete={() => setOnboardingComplete(true)} />;
+    return (
+      <Welcome
+        onOnboardingComplete={() => {
+          set("ONBOARDING_COMPLETE", "true");
+          setOnboardingComplete(true);
+        }}
+      />
+    );
   }
 
   return (
