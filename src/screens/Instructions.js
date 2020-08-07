@@ -6,7 +6,7 @@ import Markdown from "react-native-markdown-display";
 
 import exercises from "../../Exercises";
 
-export const Hint = ({ route }) => {
+export const Instructions = ({ route }) => {
   const lesson = _.get(route, "params.lesson");
   const [content, setContent] = useState("");
 
@@ -15,7 +15,7 @@ export const Hint = ({ route }) => {
       const lessonData = _.find(exercises, (e) => e.lesson === lesson);
 
       if (lesson && lessonData) {
-        const src = lessonData.hintSource;
+        const src = lessonData.instructions;
         let file = Asset.fromModule(src);
         file = await fetch(file.uri);
         file = await file.text();

@@ -12,7 +12,7 @@ export default [
         source: require("./solutions/hello-world.final").default,
       },
     ],
-    hintSource: require("./exercises/hello-world.md"),
+    instructions: require("./exercises/hello-world.md"),
   },
   {
     lesson: "capturing-taps",
@@ -31,7 +31,7 @@ export default [
         source: require("./solutions/capturing-taps.extra-1").default,
       },
     ],
-    hintSource: require("./exercises/capturing-taps.md"),
+    instructions: require("./exercises/capturing-taps.md"),
   },
   {
     lesson: "custom-component",
@@ -50,7 +50,7 @@ export default [
         source: require("./solutions/custom-component.extra-1").default,
       },
     ],
-    hintSource: require("./exercises/custom-component.md"),
+    instructions: require("./exercises/custom-component.md"),
   },
   {
     lesson: "state-props",
@@ -66,7 +66,7 @@ export default [
         source: require("./solutions/state-props.extra-1").default,
       },
     ],
-    hintSource: require("./exercises/state-props.md"),
+    instructions: require("./exercises/state-props.md"),
   },
   {
     lesson: "styling",
@@ -79,7 +79,7 @@ export default [
         source: require("./solutions/styling.extra-1").default,
       },
     ],
-    hintSource: require("./exercises/styling.md"),
+    instructions: require("./exercises/styling.md"),
   },
   {
     lesson: "scrollable-content",
@@ -90,7 +90,7 @@ export default [
         source: require("./solutions/scrollable-content.final").default,
       },
     ],
-    // hintSource: require("./exercises/scrollable-content.md"),
+    // instructions: require("./exercises/scrollable-content.md"),
   },
   {
     lesson: "building-a-form",

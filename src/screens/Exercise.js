@@ -10,7 +10,7 @@ export const Exercise = ({ navigation, route }) => {
   const [tabIndex, setTabIndex] = useState(0);
 
   useEffect(() => {
-    if (!lessonData.hintSource) {
+    if (!lessonData.instructions) {
       navigation.setOptions({
         headerRight: null,
       });

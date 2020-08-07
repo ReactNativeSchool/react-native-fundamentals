@@ -8,7 +8,7 @@ import _ from "lodash";
 import { Welcome } from "./screens/Welcome";
 import { ExerciseList } from "./screens/ExerciseList";
 import { Exercise } from "./screens/Exercise";
-import { Hint } from "./screens/Hint";
+import { Instructions } from "./screens/Instructions";
 import { get, set } from "./util/storage";
 
 const AppStack = createStackNavigator();
@@ -31,7 +31,7 @@ const Main = () => (
             <View style={{ paddingRight: 10 }}>
               <Button
                 title="Instructions"
-                onPress={() => navigation.push("Hint", { lesson })}
+                onPress={() => navigation.push("Instructions", { lesson })}
               />
             </View>
           );
@@ -80,8 +80,8 @@ const Root = () => {
     >
       <RootStack.Screen name="Main" component={Main} />
       <RootStack.Screen
-        name="Hint"
-        component={Hint}
+        name="Instructions"
+        component={Instructions}
         options={{ headerShown: true, title: "Instructions" }}
       />
     </RootStack.Navigator>
