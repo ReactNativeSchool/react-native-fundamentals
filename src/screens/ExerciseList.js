@@ -38,29 +38,29 @@ const styles = StyleSheet.create({
 
 export const ExerciseList = ({ navigation }) => {
   return (
-    <SafeAreaView>
-      <FlatList
-        data={exercises}
-        keyExtractor={(item) => item.lesson}
-        renderItem={({ item, index }) => (
-          <TouchableOpacity
-            style={styles.row}
-            onPress={() =>
-              navigation.push("Exercise", {
-                lesson: item.lesson,
-                title: item.title,
-              })
-            }
-          >
-            <View>
-              <Text style={styles.headerText}>{`Exercise ${index + 1}`}</Text>
-              <Text>{item.title}</Text>
-            </View>
-            <Entypo name="chevron-right" size={32} color="gray" />
-          </TouchableOpacity>
-        )}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
-      />
-    </SafeAreaView>
+    <FlatList
+      style={{ backgroundColor: "#fff" }}
+      contentContainerStyle={{ paddingBottom: 200 }}
+      data={exercises}
+      keyExtractor={(item) => item.lesson}
+      renderItem={({ item, index }) => (
+        <TouchableOpacity
+          style={styles.row}
+          onPress={() =>
+            navigation.push("Exercise", {
+              lesson: item.lesson,
+              title: item.title,
+            })
+          }
+        >
+          <View>
+            <Text style={styles.headerText}>{`Exercise ${index + 1}`}</Text>
+            <Text>{item.title}</Text>
+          </View>
+          <Entypo name="chevron-right" size={32} color="gray" />
+        </TouchableOpacity>
+      )}
+      ItemSeparatorComponent={() => <View style={styles.separator} />}
+    />
   );
 };

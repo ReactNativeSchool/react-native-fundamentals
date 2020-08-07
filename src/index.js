@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
-import { Button, View } from "react-native";
+import { Button, View, TouchableOpacity } from "react-native";
 import _ from "lodash";
+import { Entypo } from "@expo/vector-icons";
 
 import { Welcome } from "./screens/Welcome";
 import { ExerciseList } from "./screens/ExerciseList";
@@ -82,7 +83,21 @@ const Root = () => {
       <RootStack.Screen
         name="Instructions"
         component={Instructions}
-        options={{ headerShown: true, title: "Instructions" }}
+        options={({ navigation }) => ({
+          headerShown: true,
+          title: "Instructions",
+          headerLeft: null,
+          headerRight: () => {
+            return (
+              <TouchableOpacity
+                onPress={() => navigation.pop()}
+                style={{ paddingHorizontal: 10 }}
+              >
+                <Entypo name="cross" size={32} color="#007AFF" />
+              </TouchableOpacity>
+            );
+          },
+        })}
       />
     </RootStack.Navigator>
   );

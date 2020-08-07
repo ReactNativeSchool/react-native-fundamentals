@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
-import { Text, View, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
 import exercises from "../../Exercises";
 
@@ -25,9 +31,10 @@ export const Exercise = ({ navigation, route }) => {
         <SafeAreaView style={{ backgroundColor: "#fff" }}>
           <View
             style={{
-              paddingVertical: 20,
               flexDirection: "row",
               justifyContent: "space-around",
+              borderTopWidth: StyleSheet.hairlineWidth,
+              borderTopColor: "rgb(216, 216, 216)",
             }}
           >
             {lessonData.code.map((ex, index) => {
@@ -36,6 +43,11 @@ export const Exercise = ({ navigation, route }) => {
                 <TouchableOpacity
                   key={ex.name}
                   onPress={() => setTabIndex(index)}
+                  style={{
+                    paddingVertical: 20,
+                    flex: 1,
+                    alignItems: "center",
+                  }}
                 >
                   <Text style={selected ? { color: "red" } : {}}>
                     {ex.name}
