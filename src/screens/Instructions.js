@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, SafeAreaView } from "react-native";
+import { ScrollView, View } from "react-native";
 import _ from "lodash";
 import { Asset } from "expo-asset";
 import Markdown from "react-native-markdown-display";
@@ -26,16 +26,16 @@ export const Instructions = ({ route }) => {
   }, [lesson]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView
-        style={{
-          flex: 1,
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-        }}
-      >
-        <Markdown>{content}</Markdown>
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView
+      style={{
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        backgroundColor: "#fff",
+      }}
+    >
+      <Markdown>{content}</Markdown>
+      <View style={{ width: 1, height: 200, backgroundColor: "transparent" }} />
+    </ScrollView>
   );
 };
