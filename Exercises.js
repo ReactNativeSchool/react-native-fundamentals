@@ -86,11 +86,15 @@ export default [
     title: "Scrollable Content",
     code: [
       {
+        name: "Exercise",
+        source: require("./exercises/scrollable-content").default,
+      },
+      {
         name: "Final",
         source: require("./solutions/scrollable-content.final").default,
       },
     ],
-    // instructions: require("./exercises/scrollable-content.md"),
+    instructions: require("./exercises/scrollable-content.md"),
   },
   {
     lesson: "building-a-form",
