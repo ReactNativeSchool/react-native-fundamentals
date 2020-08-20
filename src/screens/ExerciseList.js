@@ -89,8 +89,6 @@ const sortSections = (completedLessons) => {
   ];
 };
 
-export const ASFS = true;
-
 export const ExerciseList = ({ navigation }) => {
   const [completedLessons, setCompletedLessons] = useState();
   const [sections, setSections] = useState([]);
