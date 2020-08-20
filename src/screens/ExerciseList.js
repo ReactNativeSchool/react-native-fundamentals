@@ -92,13 +92,15 @@ const sortSections = (completedLessons) => {
 export const ASFS = true;
 
 export const ExerciseList = ({ navigation }) => {
-  const [completedLessons, setCompletedLessons] = useState([]);
+  const [completedLessons, setCompletedLessons] = useState();
   const [sections, setSections] = useState([]);
   const [haveCompletedLessons, setCompletedLesons] = useState(false);
 
   useEffect(() => {
-    setSections(sortSections(completedLessons));
-    set("COMPLETED_LESSONS", JSON.stringify(completedLessons));
+    if (completedLessons) {
+      setSections(sortSections(completedLessons));
+      set("COMPLETED_LESSONS", JSON.stringify(completedLessons));
+    }
   }, [completedLessons]);
 
   useEffect(() => {
