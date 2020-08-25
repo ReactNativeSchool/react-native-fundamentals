@@ -6,6 +6,7 @@ import {
   StyleSheet,
   SectionList,
   StatusBar,
+  Linking,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import _ from "lodash";
@@ -87,6 +88,14 @@ const sortSections = (completedLessons) => {
     }
   });
 
+  if (incompleteData.length === 0) {
+    incompleteData.push({
+      exerciseNumber: 0,
+      isPromo: true,
+      title: "Keep Learning - Visit React Native School",
+    });
+  }
+
   return [
     { title: "Incomplete", data: _.sortBy(incompleteData, ["exerciseNumber"]) },
     { title: "Complete", data: _.sortBy(completeData, ["exerciseNumber"]) },
@@ -133,7 +142,7 @@ export const ExerciseList = ({ navigation }) => {
         sections={sections}
         keyExtractor={(item) => item.lesson}
         renderSectionHeader={({ section }) => {
-          if (section.data.length === 0) {
+          if (section.data.length === 0 && section.title !== "Incomplete") {
             return null;
           }
           return (
@@ -149,37 +158,45 @@ export const ExerciseList = ({ navigation }) => {
           return (
             <TouchableOpacity
               style={styles.row}
-              onPress={() =>
-                navigation.push("Exercise", {
-                  lesson: item.lesson,
-                  title: item.title,
-                })
-              }
+              onPress={() => {
+                if (item.isPromo) {
+                  Linking.openURL("https://reactnativeschool.com");
+                } else {
+                  navigation.push("Exercise", {
+                    lesson: item.lesson,
+                    title: item.title,
+                  });
+                }
+              }}
             >
               <View style={styles.left}>
-                <TouchableOpacity
-                  onPress={() => {
-                    if (!isCompleted) {
-                      setCompletedLessons((og) => [item.lesson, ...og]);
-                    } else {
-                      setCompletedLessons((og) => _.without(og, item.lesson));
-                    }
-                  }}
-                >
-                  <View style={styles.radio}>
-                    {isCompleted ? <View style={styles.radioFilled} /> : null}
-                  </View>
-                </TouchableOpacity>
+                {!item.isPromo ? (
+                  <TouchableOpacity
+                    onPress={() => {
+                      if (!isCompleted) {
+                        setCompletedLessons((og) => [item.lesson, ...og]);
+                      } else {
+                        setCompletedLessons((og) => _.without(og, item.lesson));
+                      }
+                    }}
+                  >
+                    <View style={styles.radio}>
+                      {isCompleted ? <View style={styles.radioFilled} /> : null}
+                    </View>
+                  </TouchableOpacity>
+                ) : null}
                 <View>
                   <Text style={styles.headerText}>
-                    {`Exercise ${item.exerciseNumber + 1}`}
+                    {!item.isPromo
+                      ? `Exercise ${item.exerciseNumber + 1}`
+                      : "Congrats!"}
                   </Text>
                   <Text style={styles.titleText}>{item.title}</Text>
                 </View>
               </View>
               <Entypo
-                name="chevron-right"
-                size={32}
+                name={item.isPromo ? "export" : "chevron-right"}
+                size={item.isPromo ? 28 : 32}
                 color="rgba(0, 0, 0, 0.4)"
               />
             </TouchableOpacity>
