@@ -101,15 +101,28 @@ export default [
     title: "Building a Form",
     code: [
       {
+        name: "Exercise",
+        source: require("./exercises/building-a-form").default,
+      },
+      {
         name: "Final",
         source: require("./solutions/building-a-form.final").default,
       },
+      {
+        name: "Extra 1",
+        source: require("./solutions/building-a-form.extra-1").default,
+      },
     ],
+    instructions: require("./exercises/building-a-form.md"),
   },
   {
     lesson: "long-lists",
     title: "Long Lists",
     code: [
+      {
+        name: "Exercise",
+        source: require("./exercises/long-lists").default,
+      },
       {
         name: "Final",
         source: require("./solutions/long-lists.final").default,
@@ -119,6 +132,7 @@ export default [
         source: require("./solutions/long-lists.extra-1").default,
       },
     ],
+    instructions: require("./exercises/long-lists.md"),
   },
   {
     lesson: "working-with-api",
