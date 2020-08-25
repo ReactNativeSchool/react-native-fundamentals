@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   SectionList,
+  StatusBar,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import _ from "lodash";
@@ -21,7 +22,8 @@ const styles = StyleSheet.create({
   row: {
     backgroundColor: "#fff",
     flex: 1,
-    paddingHorizontal: 20,
+    paddingLeft: 20,
+    paddingRight: 10,
     paddingVertical: 15,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -35,10 +37,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontWeight: "bold",
     fontSize: 16,
+    color: "rgba(0, 0, 0, 0.9)",
   },
   titleText: {
-    fontSize: 16,
-    paddingTop: 2,
+    fontSize: 15,
+    marginTop: 1,
+    color: "rgba(0, 0, 0, 0.9)",
   },
   left: {
     flexDirection: "row",
@@ -120,62 +124,70 @@ export const ExerciseList = ({ navigation }) => {
   }
 
   return (
-    <SectionList
-      style={{ backgroundColor: "#EFEFF4" }}
-      contentContainerStyle={{ paddingBottom: 200 }}
-      sections={sections}
-      keyExtractor={(item) => item.lesson}
-      renderSectionHeader={({ section }) => {
-        if (section.data.length === 0) {
-          return null;
-        }
-        return (
-          <View style={styles.section}>
-            <Text style={styles.sectionText}>{section.title}</Text>
-          </View>
-        );
-      }}
-      stickySectionHeadersEnabled={false}
-      renderItem={({ item }) => {
-        const isCompleted = completedLessons.includes(item.lesson);
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
-        return (
-          <TouchableOpacity
-            style={styles.row}
-            onPress={() =>
-              navigation.push("Exercise", {
-                lesson: item.lesson,
-                title: item.title,
-              })
-            }
-          >
-            <View style={styles.left}>
-              <TouchableOpacity
-                onPress={() => {
-                  if (!isCompleted) {
-                    setCompletedLessons((og) => [item.lesson, ...og]);
-                  } else {
-                    setCompletedLessons((og) => _.without(og, item.lesson));
-                  }
-                }}
-              >
-                <View style={styles.radio}>
-                  {isCompleted ? <View style={styles.radioFilled} /> : null}
-                </View>
-              </TouchableOpacity>
-              <View>
-                <Text style={styles.headerText}>
-                  {`Exercise ${item.exerciseNumber + 1}`}
-                </Text>
-                <Text>{item.title}</Text>
-              </View>
+      <SectionList
+        style={{ backgroundColor: "#EFEFF4" }}
+        contentContainerStyle={{ paddingBottom: 200 }}
+        sections={sections}
+        keyExtractor={(item) => item.lesson}
+        renderSectionHeader={({ section }) => {
+          if (section.data.length === 0) {
+            return null;
+          }
+          return (
+            <View style={styles.section}>
+              <Text style={styles.sectionText}>{section.title}</Text>
             </View>
-            <Entypo name="chevron-right" size={32} color="gray" />
-          </TouchableOpacity>
-        );
-      }}
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
-      SectionSeparatorComponent={() => <View style={styles.separator} />}
-    />
+          );
+        }}
+        stickySectionHeadersEnabled={false}
+        renderItem={({ item }) => {
+          const isCompleted = completedLessons.includes(item.lesson);
+
+          return (
+            <TouchableOpacity
+              style={styles.row}
+              onPress={() =>
+                navigation.push("Exercise", {
+                  lesson: item.lesson,
+                  title: item.title,
+                })
+              }
+            >
+              <View style={styles.left}>
+                <TouchableOpacity
+                  onPress={() => {
+                    if (!isCompleted) {
+                      setCompletedLessons((og) => [item.lesson, ...og]);
+                    } else {
+                      setCompletedLessons((og) => _.without(og, item.lesson));
+                    }
+                  }}
+                >
+                  <View style={styles.radio}>
+                    {isCompleted ? <View style={styles.radioFilled} /> : null}
+                  </View>
+                </TouchableOpacity>
+                <View>
+                  <Text style={styles.headerText}>
+                    {`Exercise ${item.exerciseNumber + 1}`}
+                  </Text>
+                  <Text style={styles.titleText}>{item.title}</Text>
+                </View>
+              </View>
+              <Entypo
+                name="chevron-right"
+                size={32}
+                color="rgba(0, 0, 0, 0.4)"
+              />
+            </TouchableOpacity>
+          );
+        }}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        SectionSeparatorComponent={() => <View style={styles.separator} />}
+      />
+    </>
   );
 };

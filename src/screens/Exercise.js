@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StyleSheet,
+  StatusBar,
 } from "react-native";
 
 import exercises from "../../Exercises";
@@ -27,6 +28,8 @@ export const Exercise = ({ navigation, route }) => {
     const Output = lessonData.code[tabIndex].source;
     return (
       <>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+
         <View style={{ flex: 1 }}>{Output ? <Output /> : null}</View>
         <SafeAreaView style={{ backgroundColor: "#fff" }}>
           <View
