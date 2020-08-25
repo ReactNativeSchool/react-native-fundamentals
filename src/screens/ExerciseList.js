@@ -92,7 +92,7 @@ const sortSections = (completedLessons) => {
 export const ExerciseList = ({ navigation }) => {
   const [completedLessons, setCompletedLessons] = useState();
   const [sections, setSections] = useState([]);
-  const [haveCompletedLessons, setCompletedLesons] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     if (completedLessons) {
@@ -106,14 +106,16 @@ export const ExerciseList = ({ navigation }) => {
       .then((lessons) => {
         if (lessons) {
           setCompletedLessons(JSON.parse(lessons));
+        } else {
+          setCompletedLessons([]);
         }
       })
       .finally(() => {
-        setCompletedLesons(true);
+        setDataLoaded(true);
       });
   }, []);
 
-  if (!haveCompletedLessons) {
+  if (!dataLoaded) {
     return null;
   }
 
@@ -123,11 +125,16 @@ export const ExerciseList = ({ navigation }) => {
       contentContainerStyle={{ paddingBottom: 200 }}
       sections={sections}
       keyExtractor={(item) => item.lesson}
-      renderSectionHeader={({ section }) => (
-        <View style={styles.section}>
-          <Text style={styles.sectionText}>{section.title}</Text>
-        </View>
-      )}
+      renderSectionHeader={({ section }) => {
+        if (section.data.length === 0) {
+          return null;
+        }
+        return (
+          <View style={styles.section}>
+            <Text style={styles.sectionText}>{section.title}</Text>
+          </View>
+        );
+      }}
       stickySectionHeadersEnabled={false}
       renderItem={({ item }) => {
         const isCompleted = completedLessons.includes(item.lesson);
