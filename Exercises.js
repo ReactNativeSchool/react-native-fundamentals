@@ -139,6 +139,10 @@ export default [
     title: "Working with an API",
     code: [
       {
+        name: "Exercise",
+        source: require("./exercises/working-with-api").default,
+      },
+      {
         name: "Final",
         source: require("./solutions/working-with-api.final").default,
       },
@@ -151,31 +155,46 @@ export default [
         source: require("./solutions/working-with-api.extra-2").default,
       },
     ],
+    instructions: require("./exercises/working-with-api.md"),
   },
   {
     lesson: "multiple-files",
     title: "Mulitple Files",
     code: [
       {
+        name: "Exercise",
+        source: require("./exercises/multiple-files").default,
+      },
+      {
         name: "Final",
         source: require("./solutions/multiple-files.final").default,
       },
     ],
+    instructions: require("./exercises/multiple-files.md"),
   },
   {
     lesson: "class-components",
     title: "Class Components",
     code: [
       {
+        name: "Exercise",
+        source: require("./exercises/class-components").default,
+      },
+      {
         name: "Final",
         source: require("./solutions/class-components.final").default,
       },
     ],
+    instructions: require("./exercises/class-components.md"),
   },
   {
     lesson: "component-lifecycle",
     title: "Component Lifecycle",
     code: [
+      {
+        name: "Exercise",
+        source: require("./exercises/component-lifecycle").default,
+      },
       {
         name: "Final",
         source: require("./solutions/component-lifecycle.final").default,
@@ -185,5 +204,6 @@ export default [
         source: require("./solutions/component-lifecycle.extra-1").default,
       },
     ],
+    instructions: require("./exercises/component-lifecycle.md"),
   },
 ];
