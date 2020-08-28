@@ -70,18 +70,18 @@ You can find a pre-made file for each exercise in the `exercises` directory. Eac
 
 You can find solutions for each exercise in the `solutions` folder (they use the same file name).
 
-1. [Exercise 1](./exercises/hello-world.md)
-2. [Exercise 2](./exercises/capturing-taps.md)
-3. [Exercise 3](./exercises/custom-component.md)
-4. [Exercise 4](./exercises/state-props.md)
-5. [Exercise 5](./exercises/styling.md)
-6. [Exercise 6](./exercises/scrollable-content.md)
-7. [Exercise 7](./exercises/building-a-form.md)
-8. [Exercise 8](./exercises/long-lists.md)
-9. [Exercise 9](./exercises/working-with-api.md)
-10. [Exercise 10](./exercises/multiple-files.md)
-11. [Exercise 11](./exercises/class-components.md)
-12. [Exercise 12](./exercises/component-lifecycle.md)
+1. [Exercise 1 - Hello, World!](./exercises/hello-world.md)
+2. [Exercise 2 - Capturing Taps](./exercises/capturing-taps.md)
+3. [Exercise 3 - Building a Custom Component](./exercises/custom-component.md)
+4. [Exercise 4 - State & Props](./exercises/state-props.md)
+5. [Exercise 5 - Styling](./exercises/styling.md)
+6. [Exercise 6 - Scrolling Content](./exercises/scrollable-content.md)
+7. [Exercise 7 - Building a Form](./exercises/building-a-form.md)
+8. [Exercise 8 - Long Scrolling Lists](./exercises/long-lists.md)
+9. [Exercise 9 - Working with Remote APIs](./exercises/working-with-api.md)
+10. [Exercise 10 - Splitting Code into Multiple Files](./exercises/multiple-files.md)
+11. [Exercise 11 - Class Components](./exercises/class-components.md)
+12. [Exercise 12 - Component Lifecycle](./exercises/component-lifecycle.md)
 
 ## Credit
 
