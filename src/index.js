@@ -11,6 +11,7 @@ import { ExerciseList } from "./screens/ExerciseList";
 import { Exercise } from "./screens/Exercise";
 import { Instructions } from "./screens/Instructions";
 import { get, set } from "./util/storage";
+import colors from "./constants/colors";
 
 const AppStack = createStackNavigator();
 const Main = () => (
@@ -93,7 +94,7 @@ const Root = () => {
                 onPress={() => navigation.pop()}
                 style={{ paddingHorizontal: 10 }}
               >
-                <Entypo name="cross" size={32} color="#007AFF" />
+                <Entypo name="cross" size={32} color={colors.link} />
               </TouchableOpacity>
             );
           },

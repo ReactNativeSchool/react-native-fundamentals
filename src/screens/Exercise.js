@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import exercises from "../../Exercises";
+import colors from "../constants/colors";
 
 export const Exercise = ({ navigation, route }) => {
   const lesson = _.get(route, "params.lesson");
@@ -52,7 +53,7 @@ export const Exercise = ({ navigation, route }) => {
                     alignItems: "center",
                   }}
                 >
-                  <Text style={selected ? { color: "red" } : {}}>
+                  <Text style={selected ? { color: colors.link } : {}}>
                     {ex.name}
                   </Text>
                 </TouchableOpacity>

@@ -13,6 +13,7 @@ import _ from "lodash";
 
 import _exercises from "../../Exercises";
 import { get, set } from "../util/storage";
+import colors from "../constants/colors";
 
 const exercises = _.map(_exercises, (exercise, index) => ({
   exerciseNumber: index,
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   radioFilled: {
-    backgroundColor: "#007AFF",
+    backgroundColor: colors.link,
     width: 15,
     height: 15,
     borderRadius: 8,
