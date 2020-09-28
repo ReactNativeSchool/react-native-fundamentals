@@ -1,4 +1,3 @@
-**Note:** This workshop is a work in progress!
 
 # React Native Fundamentals
 
