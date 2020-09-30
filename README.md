@@ -53,7 +53,10 @@ npm install
 
 With the project installed you can start the project by running `npm start`.
 
-This will output a QR code in your terminal which you can scan from the Expo app (Android) or the Camera app
+This will output a QR code in your terminal which you can scan from the Expo app (Android) or the Camera app (iOS).
+
+- [Expo iOS App](https://itunes.apple.com/app/apple-store/id982107779)
+- [Expo Android App](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
 
 Once that is complete shake your device (yes, physically shake it) at which point a menu should pop up.
 
