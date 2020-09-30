@@ -1,10 +1,10 @@
-<div>
+<a href="https://www.reactnativeschool.com/react-native-fundamentals-workshop/" target="_blank">
   <img src="./assets/header.png" alt="React Native Fundamentals" />
 </div>
 
 # React Native Fundamentals
 
-This self-guided workshop aims to get you up and running with React Native and understand the fundamentals.
+This [self-guided workshop](https://www.reactnativeschool.com/react-native-fundamentals-workshop/) aims to get you up and running with React Native and understand the fundamentals.
 
 Prepared by [React Native School](https://www.reactnativeschool.com/).
 
