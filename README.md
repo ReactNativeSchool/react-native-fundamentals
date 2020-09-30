@@ -1,3 +1,6 @@
+<div>
+  <img src="./assets/header.png" alt="React Native Fundamentals" />
+</div>
 
 # React Native Fundamentals
 
