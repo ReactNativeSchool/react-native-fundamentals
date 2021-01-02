@@ -159,7 +159,7 @@ export default [
   },
   {
     lesson: "multiple-files",
-    title: "Mulitple Files",
+    title: "Multiple Files",
     code: [
       {
         name: "Exercise",
