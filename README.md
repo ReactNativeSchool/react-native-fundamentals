@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ReactNativeSchool/react-native-fundamentals)
+
 <a href="https://www.reactnativeschool.com/react-native-fundamentals-workshop/" target="_blank">
   <img src="./assets/header.png" alt="React Native Fundamentals" />
 </div>
