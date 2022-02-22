@@ -1,9 +1,27 @@
 // Capturing User Taps
 
-// TIP: Button is a component exposed by React Native. You'll import it the same way you did View
-// and Text previously.
+import React from 'react';
+import {Button, View, Alert, Pressable, Text} from 'react-native';
 
-export default () => {
+export default CaptureTaps = () => {
   // Replace return null with your code.
-  return null;
+  return (
+    <View>
+      <Button
+        title='Botton 1'
+        onPress={() => Alert.alert("hello!")}
+      />
+      <Pressable
+        style={{
+          padding: 10,
+     
+          alignSelf: "center",
+        
+          backgroundColor: "blue",
+          }}
+        onPress={() => Alert.alert("hello 2!")}>
+        <Text style={{color: "white"}}>Botton 2</Text>
+      </Pressable>
+    </View>
+  );
 };
