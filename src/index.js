@@ -74,10 +74,10 @@ const Root = () => {
 
   return (
     <RootStack.Navigator
-      mode="modal"
       screenOptions={{
         headerShown: false,
         headerBackTitleVisible: false,
+        presentation: "modal",
       }}
     >
       <RootStack.Screen name="Main" component={Main} />
